@@ -1,0 +1,23 @@
+{
+  "name": "Blankdle",
+  "backgroundColor": "#474747",
+  "borderColor": "#9d9d9d",
+  "textColor": "#ffffff",
+  "header": "It's Blank!",
+  "body": "Theres really nothing to guess here.",
+  "placeholder": "Type your guess...",
+  "clueTypes": [
+    {
+      "clueType": "Hint",
+      "clueDescription": "Useful tidbit."
+    },
+    {
+      "clueType": "Secret",
+      "clueDescription": "Hidden detail."
+    },
+    {
+      "clueType": "Advice",
+      "clueDescription": "Helpful instruction."
+    }
+  ]
+}

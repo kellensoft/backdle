@@ -1,0 +1,15 @@
+{
+  "attributes": [
+    { "type": "Origin", "value": "Italy" },
+    { "type": "Caffeine", "value": "64" },
+    { "type": "Temperature", "value": "93" },
+    { "type": "Roast", "value": "Dark" },
+    { "type": "Flavor", "value": "Rich" },
+    { "type": "Size", "value": "30" }
+  ],
+  "clues": [
+    { "type": "Hint", "value": "The foundation of many espresso-based drinks." },
+    { "type": "Trivia", "value": "Brewed by forcing hot water through finely ground coffee under pressure." },
+    { "type": "Taste", "value": "Strong, concentrated, with a creamy texture." }
+  ]
+}

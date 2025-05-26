@@ -1,0 +1,15 @@
+{
+  "attributes": [
+    { "type": "Origin", "value": "France" },
+    { "type": "Caffeine", "value": "90" },
+    { "type": "Temperature", "value": "80" },
+    { "type": "Roast", "value": "Medium" },
+    { "type": "Flavor", "value": "Mild" },
+    { "type": "Size", "value": "250" }
+  ],
+  "clues": [
+    { "type": "Hint", "value": "Coffee with steamed milk, French style." },
+    { "type": "Trivia", "value": "Commonly enjoyed at breakfast in French households." },
+    { "type": "Taste", "value": "Mild and balanced, with creamy texture." }
+  ]
+}

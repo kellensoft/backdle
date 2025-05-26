@@ -1,0 +1,12 @@
+{
+  "attributes": [
+    { "type": "Origin", "value": "Nowhere" },
+    { "type": "Color", "value": "Transparent" },
+    { "type": "Size", "value": "0" }
+  ],
+  "clues": [
+    { "type": "Hint", "value": "It's nothing." },
+    { "type": "Secret", "value": "It rhymes with prank." },
+    { "type": "Advice", "value": "Actually type blank." }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Coffeedle",
+  "backgroundColor": "#4e342e",
+  "borderColor": "#a1887f",
+  "textColor": "#ffffff",
+  "header": "Guess the Coffee!",
+  "body": "Identify the correct coffee variety by its characteristics.",
+  "placeholder": "Type a coffee name...",
+  "clueTypes": [
+    {
+      "clueType": "Hint",
+      "clueDescription": "A clue about the coffee's background or characteristics."
+    },
+    {
+      "clueType": "Trivia",
+      "clueDescription": "A fun fact or historical note about the drink."
+    },
+    {
+      "clueType": "Taste",
+      "clueDescription": "Describes the flavor or texture profile."
+    }
+  ]
+}
