@@ -33,7 +33,8 @@ export class LocalGameDataProvider implements GameDataProvider {
   }
 
   private getStaticPath(value: string, filename: string) {
-    return `/static/${basename(value)}/${filename}`
+    const baseUrl = process.env.BASE_URL || 'http://localhost:3000';
+    return `${baseUrl}/static/${value}/${filename}`
   }
 
   private async getAnswersForDate(basePath: string): Promise<{
@@ -68,7 +69,7 @@ export class LocalGameDataProvider implements GameDataProvider {
     const manifest = this.manifestService.getAllGameConfigs();
     const games: Game[] = Object.keys(manifest).map(name => ({
       name,
-      icon: `/static/${name}/icon.png`,
+      icon: this.getStaticPath(name, 'icon.png'),
     }));
     data.games = games;
 

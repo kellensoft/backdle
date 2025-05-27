@@ -1,6 +1,6 @@
 {
   "name": "Coffeedle",
-  "backgroundColor": "#4e342e",
+  "foregroundColor": "#4e342e",
   "borderColor": "#a1887f",
   "textColor": "#ffffff",
   "header": "Guess the Coffee!",

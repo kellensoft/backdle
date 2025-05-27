@@ -29,7 +29,7 @@ export class Game {
 @ObjectType()
 export class GameInfo {
   @Field() name: string;
-  @Field() backgroundColor: string;
+  @Field() foregroundColor: string;
   @Field() borderColor: string;
   @Field() textColor: string;
   @Field() header: string;

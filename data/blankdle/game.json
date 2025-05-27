@@ -1,6 +1,6 @@
 {
   "name": "Blankdle",
-  "backgroundColor": "#474747",
+  "foregroundColor": "#474747",
   "borderColor": "#9d9d9d",
   "textColor": "#ffffff",
   "header": "It's Blank!",
