@@ -11,7 +11,6 @@ import {
   AutocompleteResult,
   Attribute,
   Game,
-  GameManifest
 } from '../../types';
 
 @Injectable()
@@ -145,13 +144,19 @@ export class LocalGameDataProvider implements GameDataProvider {
     return clue;
   }
 
+  private matchesSearch(name: string, search: string): boolean {
+    const words = name.toLowerCase().split(/\s+/); // split by spaces
+    const query = search.toLowerCase();
+    return words.some(word => word.startsWith(query));
+  }
+
   async autocomplete(config: GameSourceConfig, search: string): Promise<AutocompleteResult[]> {
     const basePath = config.path!;
     const files = await fs.readdir(join(basePath, 'bank'));
     const gameName = basename(basePath);
-    
+
     return files
-      .filter(name => name.endsWith('.json') && name.toLowerCase().includes(search.toLowerCase()))
+      .filter(name => name.endsWith('.json') && this.matchesSearch(name.toLowerCase(), search.toLowerCase()))
       .map(file => {
         const name = file.replace(/\.json$/, '');
         const imagePath = this.getStaticPath(gameName, `bank/${name}.png`);
