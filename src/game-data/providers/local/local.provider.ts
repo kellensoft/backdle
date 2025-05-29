@@ -104,7 +104,7 @@ export class LocalGameDataProvider implements GameDataProvider {
     const entry = await this.readJson<{ attributes: Attribute[] }>(entryPath);
 
     const { today } = await this.getAnswersForDate(basePath);
-    const answerId = index[word];
+    const answerId = index[today];
     if (!answerId) {
       throw new Error(`No entry for "${today}" found in index`);
     }
@@ -167,7 +167,7 @@ export class LocalGameDataProvider implements GameDataProvider {
   }
 
   private matchesSearch(name: string, search: string): boolean {
-    const words = name.toLowerCase().split(/\s+/); // split by spaces
+    const words = name.toLowerCase().split(/\s+/); 
     const query = search.toLowerCase();
     return words.some(word => word.startsWith(query));
   }
