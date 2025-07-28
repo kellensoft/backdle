@@ -1,11 +1,11 @@
 {
   "attributes": [
-    { "type": "Origin", "value": "USA" },
-    { "type": "Caffeine", "value": "77" },
-    { "type": "Temperature", "value": "85" },
-    { "type": "Roast", "value": "Medium" },
-    { "type": "Flavor", "value": "Smooth" },
-    { "type": "Size", "value": "240" }
+    { "type": "text", "values": ["USA"] },
+    { "type": "text", "values": ["77"] },
+    { "type": "text", "values": ["85"] },
+    { "type": "text", "values": ["Medium"] },
+    { "type": "text", "values": ["Smooth"] },
+    { "type": "text", "values": ["240"] }
   ],
   "clues": [
     { "type": "Hint", "value": "Made by adding hot water to espresso." },

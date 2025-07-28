@@ -1,8 +1,8 @@
 {
   "attributes": [
-    { "type": "Origin", "value": "Nowhere" },
-    { "type": "Color", "value": "Transparent" },
-    { "type": "Size", "value": "0" }
+    { "type": "text", "values": ["Nowhere"] },
+    { "type": "text", "values": ["Transparent"] },
+    { "type": "text", "values": ["0", "null"] }
   ],
   "clues": [
     { "type": "Hint", "value": "It's nothing." },

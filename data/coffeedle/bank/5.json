@@ -1,11 +1,11 @@
 {
   "attributes": [
-    { "type": "Origin", "value": "Australia" },
-    { "type": "Caffeine", "value": "75" },
-    { "type": "Temperature", "value": "70" },
-    { "type": "Roast", "value": "Light" },
-    { "type": "Flavor", "value": "Creamy" },
-    { "type": "Size", "value": "160" }
+    { "type": "text", "values": ["Australia"] },
+    { "type": "text", "values": ["75"] },
+    { "type": "text", "values": ["70"] },
+    { "type": "text", "values": ["Light"] },
+    { "type": "text", "values": ["Creamy"] },
+    { "type": "text", "values": ["160"] }
   ],
   "clues": [
     { "type": "Hint", "value": "A velvety microfoam milk drink." },

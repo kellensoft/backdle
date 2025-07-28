@@ -1,11 +1,11 @@
 {
   "attributes": [
-    { "type": "Origin", "value": "USA" },
-    { "type": "Caffeine", "value": "200" },
-    { "type": "Temperature", "value": "5" },
-    { "type": "Roast", "value": "Medium" },
-    { "type": "Flavor", "value": "Mellow" },
-    { "type": "Size", "value": "350" }
+    { "type": "text", "values": ["USA"] },
+    { "type": "text", "values": ["200"] },
+    { "type": "text", "values": ["5"] },
+    { "type": "text", "values": ["Medium"] },
+    { "type": "text", "values": ["Mellow"] },
+    { "type": "text", "values": ["350"] }
   ],
   "clues": [
     { "type": "Hint", "value": "Steeped for hours without heat." },

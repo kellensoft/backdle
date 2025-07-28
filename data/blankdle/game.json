@@ -6,6 +6,7 @@
   "header": "It's Blank!",
   "body": "Theres really nothing to guess here.",
   "placeholder": "Type your guess...",
+  "attributes": ["Origin", "Color", "Size"],
   "clueTypes": [
     {
       "clueType": "Hint",

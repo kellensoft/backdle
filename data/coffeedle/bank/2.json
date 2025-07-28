@@ -1,11 +1,11 @@
 {
   "attributes": [
-    { "type": "Origin", "value": "France" },
-    { "type": "Caffeine", "value": "90" },
-    { "type": "Temperature", "value": "80" },
-    { "type": "Roast", "value": "Medium" },
-    { "type": "Flavor", "value": "Mild" },
-    { "type": "Size", "value": "250" }
+    { "type": "text", "values": ["France"] },
+    { "type": "text", "values": ["90"] },
+    { "type": "text", "values": ["80"] },
+    { "type": "text", "values": ["Medium"] },
+    { "type": "text", "values": ["Mild"] },
+    { "type": "text", "values": ["250"] }
   ],
   "clues": [
     { "type": "Hint", "value": "Coffee with steamed milk, French style." },

@@ -1,11 +1,75 @@
 {
   "name": "Coffeedle",
-  "foregroundColor": "#311707",
-  "borderColor": "#a1887f",
-  "textColor": "#ffffff",
   "header": "Guess the Coffee!",
   "body": "Identify the correct coffee variety by its characteristics.",
   "placeholder": "Type a coffee name...",
+  "attributes": ["Origin", "Caffeine", "Temperature", "Roast", "Flavor", "Size"],
+
+  "logoTextColor": "#ffffff",
+  "logoFontFamily": "Roboto",
+
+  "modalBackgroundColor": "#311707",
+  "modalBorderColor": "#a1887f",
+  "modalBorderWidth": "0.3rem",
+  "modalBorderRadius": "0.9rem",
+  "modalFontFamily": "Roboto",
+  "modalTextColor": "#ffffff",
+
+  "infoBackgroundColor": "#311707",
+  "infoBorderColor": "#a1887f",
+  "infoBorderWidth": "0.3rem",
+  "infoBorderRadius": "2rem 0.9rem 0.9rem 0.9rem",
+  "infoFontFamily": "Roboto",
+  "infoTextColor": "#ffffff",
+
+  "inputBackgroundColor": "#ffffff",
+  "inputBorderColor": "#a1887f",
+  "inputBorderWidth": "0.2rem",
+  "inputBorderRadius": "2rem",
+  "inputFontFamily": "Roboto",
+  "inputTextColor": "#000000",
+
+  "tableFontFamily": "Roboto",
+  "tableTextColor": "#ffffff",
+
+  "tileBorderWidth": "0.15rem",
+  "tileBorderRadius": "0.5rem",
+  "tileColorCorrect": "#4caf50",
+  "tileColorIncorrect": "#f44336",
+  "tileColorPartial": "#ff9800",
+  "tileColorDefault": "#ffffff",
+  "tileFontFamily": "Roboto",
+  "tileTextCorrect": "#ffffff",
+  "tileTextInCorrect": "#ffffff",
+  "tileTextPartial": "#ffffff",
+  "tileTextDefault": "#000000",
+
+  "yesterdayBackgroundColor": "transparent",
+  "yesterdayBorderColor": "transparent",
+  "yesterdayBorderWidth": "0",
+  "yesterdayBorderRadius": "0",
+  "yesterdayFontFamily": "Roboto",
+  "yesterdayTextColor": "#ffffff",
+  "yesterdayItemFontFamily": "Roboto",
+  "yesterdayItemTextColor": "#ffffff",
+
+  "keyBackgroundColor": "#5d4037",
+  "keyBorderColor": "#a1887f",
+  "keyBorderWidth": "0.3rem",
+  "keyBorderRadius": "0.9rem",
+  "keyFontFamily": "Roboto",
+  "keyTextColor": "#ffffff",
+
+  "atlasBackgroundColor": "#311707",
+  "atlasBorderColor": "#a1887f",
+  "atlasBorderWidth": "0.3rem",
+  "atlasBorderRadius": "0.9rem",
+  "atlasFontFamily": "Roboto",
+  "atlasTextColor": "#ffffff",
+
+  "footerTextColor": "#ffffff",
+  "footerFontFamily": "Roboto",
+
   "clueTypes": [
     {
       "clueType": "Hint",

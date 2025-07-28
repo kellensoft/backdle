@@ -9,7 +9,8 @@ import {
   GuessInfo,
   Clue,
   AutocompleteResult,
-  Attribute,
+  Item,
+  ContentBlock,
   Game,
 } from '../../types';
 
@@ -101,7 +102,7 @@ export class LocalGameDataProvider implements GameDataProvider {
     }
     const entryPath = join(basePath, 'bank', `${guessId}.json`);
 
-    const entry = await this.readJson<{ attributes: Attribute[] }>(entryPath);
+    const entry = await this.readJson<{ attributes: ContentBlock[] }>(entryPath);
 
     const { today } = await this.getAnswersForDate(basePath);
     const answerId = index[today];
@@ -109,36 +110,54 @@ export class LocalGameDataProvider implements GameDataProvider {
       throw new Error(`No entry for "${today}" found in index`);
     }
     const answerPath = join(basePath, 'bank', `${answerId}.json`);
-    const answer = await this.readJson<{ attributes: Attribute[] }>(answerPath);
+    const answer = await this.readJson<{ attributes: ContentBlock[] }>(answerPath);
 
-    const answerMap = new Map(answer.attributes.map(attr => [attr.type, attr.value]));
+    const answerAttributes = answer.attributes;
 
-    const enriched = entry.attributes.map(attr => {
-      const answerValue = answerMap.get(attr.type);
+    const enriched = entry.attributes.map((attr, index) => {
+      const answerAttr = answerAttributes[index];
+      
+      if (!answerAttr) {
+        return {
+          state: 'default',
+          content: [attr],
+          arrow: undefined,
+        };
+      }
 
-      let color = 'red';
-      let direction = '';
+      let state = 'incorrect';
+      let arrow: 'up' | 'down' | undefined = undefined;
 
-      if (attr.value === answerValue) {
-        color = 'green';
-      } else if (!this.isNumeric(attr.value) && !this.isNumeric(answerValue)) {
+      if (attr.type === 'text' && answerAttr.type === 'text' && attr.values && answerAttr.values) {
+        const guessText = attr.values[0]?.toLowerCase() || '';
+        const answerText = answerAttr.values[0]?.toLowerCase() || '';
 
-        if (
-          attr.value.toLowerCase().includes(answerValue.toLowerCase()) ||
-          answerValue.toLowerCase().includes(attr.value.toLowerCase())
+        if (guessText === answerText) {
+          state = 'correct';
+        } else if (this.isNumeric(guessText) && this.isNumeric(answerText)) {
+          const guessNum = parseFloat(guessText);
+          const answerNum = parseFloat(answerText);
+          arrow = guessNum < answerNum ? 'up' : 'down';
+          state = 'incorrect';
+        } else if (
+          guessText.includes(answerText) || 
+          answerText.includes(guessText)
         ) {
-          color = 'yellow';
+          state = 'partial';
         }
-      } else if (this.isNumeric(attr.value) && this.isNumeric(answerValue)) {
-        const guessNum = parseFloat(attr.value);
-        const answerNum = parseFloat(answerValue);
-        direction = guessNum < answerNum ? 'up' : 'down';
+      } else if (attr.type === 'image' && answerAttr.type === 'image') {
+        const guessUrls = attr.urls || [];
+        const answerUrls = answerAttr.urls || [];
+        
+        if (guessUrls.some(url => answerUrls.includes(url))) {
+          state = 'correct';
+        }
       }
 
       return {
-        ...attr,
-        color,
-        direction,
+        state,
+        content: [attr],
+        arrow,
       };
     });
 

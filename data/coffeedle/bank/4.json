@@ -1,11 +1,11 @@
 {
   "attributes": [
-    { "type": "Origin", "value": "Italy" },
-    { "type": "Caffeine", "value": "64" },
-    { "type": "Temperature", "value": "93" },
-    { "type": "Roast", "value": "Dark" },
-    { "type": "Flavor", "value": "Rich" },
-    { "type": "Size", "value": "30" }
+    { "type": "text", "values": ["Italy"] },
+    { "type": "text", "values": ["64"] },
+    { "type": "text", "values": ["93"] },
+    { "type": "text", "values": ["Dark"] },
+    { "type": "text", "values": ["Rich"] },
+    { "type": "text", "values": ["30"] }
   ],
   "clues": [
     { "type": "Hint", "value": "The foundation of many espresso-based drinks." },

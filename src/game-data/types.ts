@@ -1,11 +1,24 @@
 import { ObjectType, Field } from '@nestjs/graphql';
 
 @ObjectType()
-export class Attribute {
-  @Field() type: string;
-  @Field() value: string;
-  @Field() color: string;
-  @Field() direction: string;
+export class ContentBlock {
+  @Field() type: 'text' | 'image';
+  @Field(() => [String], { nullable: true }) values?: string[];
+  @Field(() => [String], { nullable: true }) urls?: string[];
+}
+
+@ObjectType()
+export class Item {
+  @Field() state: string;
+  @Field(() => [ContentBlock]) content: ContentBlock[];
+  @Field({ nullable: true }) arrow?: 'up' | 'down';
+}
+
+@ObjectType()
+export class GuessInfo {
+  @Field() guess: string;
+  @Field(() => [Item]) validation: Item[];
+  @Field({ nullable: true }) image?: string;
 }
 
 @ObjectType()
@@ -29,24 +42,74 @@ export class Game {
 @ObjectType()
 export class GameInfo {
   @Field() name: string;
-  @Field() foregroundColor: string;
-  @Field() borderColor: string;
-  @Field() textColor: string;
   @Field() header: string;
   @Field() body: string;
-  @Field(() => [ClueType]) clueTypes: ClueType[];
   @Field() placeholder: string;
+  @Field(() => [String]) attributes: string[];
+  
+  // Making styling fields optional/nullable
+  @Field({ nullable: true }) background?: string;
+  @Field({ nullable: true }) icon?: string;
+  @Field({ nullable: true }) logoTextColor?: string;
+  @Field({ nullable: true }) logoFontFamily?: string;
+  @Field({ nullable: true }) modalBackgroundColor?: string;
+  @Field({ nullable: true }) modalBorderColor?: string;
+  @Field({ nullable: true }) modalBorderWidth?: string;
+  @Field({ nullable: true }) modalBorderRadius?: string;
+  @Field({ nullable: true }) modalFontFamily?: string;
+  @Field({ nullable: true }) modalTextColor?: string;
+  @Field({ nullable: true }) infoBackgroundColor?: string;
+  @Field({ nullable: true }) infoBorderColor?: string;
+  @Field({ nullable: true }) infoBorderWidth?: string;
+  @Field({ nullable: true }) infoBorderRadius?: string;
+  @Field({ nullable: true }) infoFontFamily?: string;
+  @Field({ nullable: true }) infoTextColor?: string;
+  @Field({ nullable: true }) inputBackgroundColor?: string;
+  @Field({ nullable: true }) inputBorderColor?: string;
+  @Field({ nullable: true }) inputBorderWidth?: string;
+  @Field({ nullable: true }) inputBorderRadius?: string;
+  @Field({ nullable: true }) inputFontFamily?: string;
+  @Field({ nullable: true }) inputTextColor?: string;
+  @Field({ nullable: true }) tableFontFamily?: string;
+  @Field({ nullable: true }) tableTextColor?: string;
+  @Field({ nullable: true }) tileBorderColor?: string;
+  @Field({ nullable: true }) tileBorderWidth?: string;
+  @Field({ nullable: true }) tileBorderRadius?: string;
+  @Field({ nullable: true }) tileColorCorrect?: string;
+  @Field({ nullable: true }) tileColorIncorrect?: string;
+  @Field({ nullable: true }) tileColorPartial?: string;
+  @Field({ nullable: true }) tileColorDefault?: string;
+  @Field({ nullable: true }) tileFontFamily?: string;
+  @Field({ nullable: true }) tileTextCorrect?: string;
+  @Field({ nullable: true }) tileTextInCorrect?: string;
+  @Field({ nullable: true }) tileTextPartial?: string;
+  @Field({ nullable: true }) tileTextDefault?: string;
+  @Field({ nullable: true }) yesterdayBackgroundColor?: string;
+  @Field({ nullable: true }) yesterdayBorderColor?: string;
+  @Field({ nullable: true }) yesterdayBorderWidth?: string;
+  @Field({ nullable: true }) yesterdayBorderRadius?: string;
+  @Field({ nullable: true }) yesterdayFontFamily?: string;
+  @Field({ nullable: true }) yesterdayTextColor?: string;
+  @Field({ nullable: true }) yesterdayItemFontFamily?: string;
+  @Field({ nullable: true }) yesterdayItemTextColor?: string;
+  @Field({ nullable: true }) keyBackgroundColor?: string;
+  @Field({ nullable: true }) keyBorderColor?: string;
+  @Field({ nullable: true }) keyBorderWidth?: string;
+  @Field({ nullable: true }) keyBorderRadius?: string;
+  @Field({ nullable: true }) keyFontFamily?: string;
+  @Field({ nullable: true }) keyTextColor?: string;
+  @Field({ nullable: true }) atlasBackgroundColor?: string;
+  @Field({ nullable: true }) atlasBorderColor?: string;
+  @Field({ nullable: true }) atlasBorderWidth?: string;
+  @Field({ nullable: true }) atlasBorderRadius?: string;
+  @Field({ nullable: true }) atlasFontFamily?: string;
+  @Field({ nullable: true }) atlasTextColor?: string;
+  @Field({ nullable: true }) footerTextColor?: string;
+  @Field({ nullable: true }) footerFontFamily?: string;
+  
+  @Field(() => [ClueType]) clueTypes: ClueType[];
   @Field(() => [Game]) games: Game[];
-  @Field() yesterdaysAnswer: string;
-  @Field() icon: string;
-  @Field() background: string;
-}
-
-@ObjectType()
-export class GuessInfo {
-  @Field() guess: string;
-  @Field(() => [Attribute]) validation: Attribute[];
-  @Field({ nullable: true }) image?: string;
+  @Field({ nullable: true }) yesterdaysAnswer?: string;
 }
 
 @ObjectType()
