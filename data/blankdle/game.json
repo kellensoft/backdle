@@ -1,8 +1,5 @@
 {
   "name": "Blankdle",
-  "foregroundColor": "#474747",
-  "borderColor": "#9d9d9d",
-  "textColor": "#ffffff",
   "header": "It's Blank!",
   "body": "Theres really nothing to guess here.",
   "placeholder": "Type your guess...",
@@ -20,5 +17,67 @@
       "clueType": "Advice",
       "clueDescription": "Helpful instruction."
     }
-  ]
+  ],
+  "sections": {
+    "header": {
+      "textColor": "#ffffff"
+    },
+    "menu": {
+      "textColor": "#ffffff"
+    },
+    "description": {
+      "textColor": "#ffffff"
+    },
+    "input": {
+      "textColor": "#ffffff",
+      "borderColor": "#9d9d9d"
+    },
+    "table": {
+      "textColor": "#ffffff",
+      "borderColor": "#9d9d9d",
+      "tile": {
+        "textColor": "#ffffff",
+        "borderColor": "#9d9d9d",
+        "colors": {
+          "correct": "#28dd50",
+          "incorrect": "#c5000f",
+          "partial": "#ffc409",
+          "default": "#474747"
+        },
+        "labels": {
+          "correct": "Correct",
+          "incorrect": "Incorrect",
+          "partial": "Partial",
+          "default": "Default"
+        }
+      }
+    },
+    "modal": {
+      "textColor": "#ffffff"
+    },
+    "key": {
+      "textColor": "#ffffff",
+      "borderColor": "#9d9d9d"
+    },
+    "today": {
+      "textColor": "#ffffff"
+    },
+    "share": {
+      "textColor": "#ffffff"
+    },
+    "yesterday": {
+      "textColor": "#ffffff",
+      "borderColor": "#9d9d9d",
+      "item": {
+        "textColor": "#ffffff"
+      }
+    },
+    "moreGames": {
+      "textColor": "#ffffff"
+    },
+    "about": {
+      "textColor": "#ffffff"
+    }
+  }
 }
+

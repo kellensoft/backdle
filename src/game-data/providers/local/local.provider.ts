@@ -88,6 +88,7 @@ export class LocalGameDataProvider implements GameDataProvider {
     const gameName = basename(basePath);
     data["icon"] = this.getStaticPath(gameName, 'icon.png');
     data["background"] = this.getStaticPath(gameName, 'background.png');
+    data["logo"] = this.getStaticPath(gameName, 'logo.png');
 
     return data;
   }

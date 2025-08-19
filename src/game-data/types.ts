@@ -1,4 +1,5 @@
 import { ObjectType, Field } from '@nestjs/graphql';
+import { ExtendsClauseableNode } from 'ts-morph';
 
 @ObjectType()
 export class ContentBlock {
@@ -39,6 +40,87 @@ export class Game {
   @Field() icon: string;
 }
 
+@ObjectType({ isAbstract: true })
+export abstract class SectionStyle {
+  @Field({ nullable: true }) padding?: string;
+  @Field({ nullable: true }) margin?: string;
+  @Field({ nullable: true }) textAlign?: string;
+
+  @Field({ nullable: true }) backgroundColor?: string;
+  @Field({ nullable: true }) backgroundImage?: string;
+  @Field({ nullable: true }) backgroundSize?: string;
+  @Field({ nullable: true }) backgroundRepeat?: string;
+  @Field({ nullable: true }) backgroundPosition?: string;
+
+  @Field({ nullable: true }) borderColor?: string;
+  @Field({ nullable: true }) borderWidth?: string;
+  @Field({ nullable: true }) borderRadius?: string;
+
+  @Field({ nullable: true }) boxShadow?: string;
+
+  @Field({ nullable: true }) fontFamily?: string;
+  @Field({ nullable: true }) fontSize?: string;
+  @Field({ nullable: true }) fontWeight?: string;
+  @Field({ nullable: true }) textColor?: string;
+
+  @Field({ nullable: true }) decorationTopImage?: string;
+  @Field({ nullable: true }) decorationTopHeight?: string;
+  @Field({ nullable: true }) decorationBottomImage?: string;
+  @Field({ nullable: true }) decorationBottomHeight?: string;
+}
+
+@ObjectType()
+export class TileColors {
+  @Field({ nullable: true }) correct?: string;
+  @Field({ nullable: true }) incorrect?: string;
+  @Field({ nullable: true }) partial?: string;
+  @Field({ nullable: true }) default?: string;
+}
+
+@ObjectType()
+export class TileLabels {
+  @Field({ nullable: true }) correct?: string;
+  @Field({ nullable: true }) incorrect?: string;
+  @Field({ nullable: true }) partial?: string;
+  @Field({ nullable: true }) default?: string;
+}
+
+@ObjectType()
+export class BasicSection extends SectionStyle {}
+
+@ObjectType()
+export class TileStyle extends SectionStyle {
+  @Field(() => TileColors, { nullable: true }) colors?: TileColors;
+  @Field(() => TileLabels, { nullable: true }) labels?: TileLabels;
+}
+
+@ObjectType()
+export class TableSection extends SectionStyle {
+  @Field(() => TileStyle, { nullable: true }) tile?: TileStyle;
+}
+
+@ObjectType()
+export class YesterdaySection extends SectionStyle {
+  @Field(() => BasicSection, { nullable: true }) item?: BasicSection;
+}
+
+@ObjectType()
+export class Sections {
+  @Field(() => BasicSection, { nullable: true }) header?: BasicSection;
+  @Field(() => BasicSection, { nullable: true }) menu?: BasicSection;
+  @Field(() => BasicSection, { nullable: true }) description?: BasicSection;
+  @Field(() => BasicSection, { nullable: true }) input?: BasicSection;
+  @Field(() => BasicSection, { nullable: true }) key?: BasicSection;
+  @Field(() => BasicSection, { nullable: true }) today?: BasicSection;
+  @Field(() => BasicSection, { nullable: true }) share?: BasicSection;
+  @Field(() => BasicSection, { nullable: true }) moreGames?: BasicSection;
+  @Field(() => BasicSection, { nullable: true }) about?: BasicSection;
+  @Field(() => BasicSection, { nullable: true }) modal?: BasicSection;
+  @Field(() => TableSection, { nullable: true }) table?: TableSection;
+  @Field(() => YesterdaySection, { nullable: true }) yesterday?: YesterdaySection;
+}
+
+
 @ObjectType()
 export class GameInfo {
   @Field() name: string;
@@ -46,67 +128,13 @@ export class GameInfo {
   @Field() body: string;
   @Field() placeholder: string;
   @Field(() => [String]) attributes: string[];
-  
-  // Making styling fields optional/nullable
+
   @Field({ nullable: true }) background?: string;
   @Field({ nullable: true }) icon?: string;
-  @Field({ nullable: true }) logoTextColor?: string;
-  @Field({ nullable: true }) logoFontFamily?: string;
-  @Field({ nullable: true }) modalBackgroundColor?: string;
-  @Field({ nullable: true }) modalBorderColor?: string;
-  @Field({ nullable: true }) modalBorderWidth?: string;
-  @Field({ nullable: true }) modalBorderRadius?: string;
-  @Field({ nullable: true }) modalFontFamily?: string;
-  @Field({ nullable: true }) modalTextColor?: string;
-  @Field({ nullable: true }) infoBackgroundColor?: string;
-  @Field({ nullable: true }) infoBorderColor?: string;
-  @Field({ nullable: true }) infoBorderWidth?: string;
-  @Field({ nullable: true }) infoBorderRadius?: string;
-  @Field({ nullable: true }) infoFontFamily?: string;
-  @Field({ nullable: true }) infoTextColor?: string;
-  @Field({ nullable: true }) inputBackgroundColor?: string;
-  @Field({ nullable: true }) inputBorderColor?: string;
-  @Field({ nullable: true }) inputBorderWidth?: string;
-  @Field({ nullable: true }) inputBorderRadius?: string;
-  @Field({ nullable: true }) inputFontFamily?: string;
-  @Field({ nullable: true }) inputTextColor?: string;
-  @Field({ nullable: true }) tableFontFamily?: string;
-  @Field({ nullable: true }) tableTextColor?: string;
-  @Field({ nullable: true }) tileBorderColor?: string;
-  @Field({ nullable: true }) tileBorderWidth?: string;
-  @Field({ nullable: true }) tileBorderRadius?: string;
-  @Field({ nullable: true }) tileColorCorrect?: string;
-  @Field({ nullable: true }) tileColorIncorrect?: string;
-  @Field({ nullable: true }) tileColorPartial?: string;
-  @Field({ nullable: true }) tileColorDefault?: string;
-  @Field({ nullable: true }) tileFontFamily?: string;
-  @Field({ nullable: true }) tileTextCorrect?: string;
-  @Field({ nullable: true }) tileTextInCorrect?: string;
-  @Field({ nullable: true }) tileTextPartial?: string;
-  @Field({ nullable: true }) tileTextDefault?: string;
-  @Field({ nullable: true }) yesterdayBackgroundColor?: string;
-  @Field({ nullable: true }) yesterdayBorderColor?: string;
-  @Field({ nullable: true }) yesterdayBorderWidth?: string;
-  @Field({ nullable: true }) yesterdayBorderRadius?: string;
-  @Field({ nullable: true }) yesterdayFontFamily?: string;
-  @Field({ nullable: true }) yesterdayTextColor?: string;
-  @Field({ nullable: true }) yesterdayItemFontFamily?: string;
-  @Field({ nullable: true }) yesterdayItemTextColor?: string;
-  @Field({ nullable: true }) keyBackgroundColor?: string;
-  @Field({ nullable: true }) keyBorderColor?: string;
-  @Field({ nullable: true }) keyBorderWidth?: string;
-  @Field({ nullable: true }) keyBorderRadius?: string;
-  @Field({ nullable: true }) keyFontFamily?: string;
-  @Field({ nullable: true }) keyTextColor?: string;
-  @Field({ nullable: true }) atlasBackgroundColor?: string;
-  @Field({ nullable: true }) atlasBorderColor?: string;
-  @Field({ nullable: true }) atlasBorderWidth?: string;
-  @Field({ nullable: true }) atlasBorderRadius?: string;
-  @Field({ nullable: true }) atlasFontFamily?: string;
-  @Field({ nullable: true }) atlasTextColor?: string;
-  @Field({ nullable: true }) footerTextColor?: string;
-  @Field({ nullable: true }) footerFontFamily?: string;
-  
+  @Field({ nullable: true }) logo?: string; // logo image url
+
+  @Field(() => Sections, { nullable: true }) sections?: Sections;
+
   @Field(() => [ClueType]) clueTypes: ClueType[];
   @Field(() => [Game]) games: Game[];
   @Field({ nullable: true }) yesterdaysAnswer?: string;
